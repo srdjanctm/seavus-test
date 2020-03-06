@@ -77,25 +77,35 @@ public class DriverServices implements Closeable {
 	}
 	
 	private WebDriver getBrowserDriver() {
-		String browser = System.getProperty("browser.type");
-		System.out.println(" ============== > " + browser);
-		if(browser.isEmpty())
-			browser = "chrome";
-		switch (browser) {
-//		switch (reader.getBrowserType()) {
+
+		// Use this code if you want to be able to pass browser parameter in terminal : mvn test -Dbrowser=chrome
+
+//		String browser = System.getProperty("browser.type");
+//		System.out.println(" ============== > " + browser);
+//		if(browser.isEmpty())
+//			browser = "chrome";
+//		switch (browser) {
 //
+//			case BrowserType.CHROME:
+//				CustomChromeDriver chromeDriver = new CustomChromeDriver();
+//				return chromeDriver.getChromeDriver();
+//
+//			case BrowserType.FIREFOX:
+//				CustomFirefoxDriver firefoxDriver = new CustomFirefoxDriver();
+//				return firefoxDriver.getFirefoxDriver();
+//
+//		}
+
+		switch (reader.getBrowserType()) {
+
 		case BrowserType.CHROME:
-			CustomChromeDriver chromeDriver = new CustomChromeDriver();
-			return chromeDriver.getChromeDriver();
-//			browserConfiguration = new CustomChromeDriver();
-//			return browserConfiguration.getBrowserDriver();
-//
+			browserConfiguration = new CustomChromeDriver();
+			return browserConfiguration.getBrowserDriver();
+
 		case BrowserType.FIREFOX:
-			CustomFirefoxDriver firefoxDriver = new CustomFirefoxDriver();
-			return firefoxDriver.getFirefoxDriver();
-//			browserConfiguration = new CustomFirefoxDriver();
-//			return browserConfiguration.getBrowserDriver();
-//
+			browserConfiguration = new CustomFirefoxDriver();
+			return browserConfiguration.getBrowserDriver();
+
 		default:
 			throw new RuntimeException("Invalid Browser Type : " + reader.getBrowserType());
 		}
