@@ -29,6 +29,3 @@ hs_err_pid*
 
 #OS junk files
 *.DS_Store
-
-#Common/build
-chromedriver

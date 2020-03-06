@@ -31,17 +31,7 @@ public class CustomChromeDriver implements BrowserConfiguration{
 		ChromeOptions options = new ChromeOptions();
 		options.setAcceptInsecureCerts(true);
 		options.addArguments("--no-sandbox");
-//		options.addArguments("enable-automation");
-//		options.addArguments("--headless");
-//		options.addArguments("--window-size=1920,1080");
-//		options.addArguments("--disable-extensions");
-//		options.addArguments("--dns-prefetch-disable");
-//		options.addArguments("--disable-gpu");
-//		options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 //		options.addArguments("--headless", "window-size=1920,1080");
-		// command line arg
-		// binary location
-		// Extension
 		return options;
 
 	}
